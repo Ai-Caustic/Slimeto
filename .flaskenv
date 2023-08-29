@@ -1,0 +1,2 @@
+FLASK_APP=slimeto
+FLASKENV=development
