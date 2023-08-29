@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+  </head>
+
+  <body>
+    <div class="card">
+      <div class="card-header">
+        <img
+          id="logo"
+          src="{{ url_for('static', filename='logo.png')}}"
+          class="card-img-top rounded mx-auto d-block"
+          alt="Smart Moran"
+        />
+      </div>
+      <div class="card-body">
+        {% with messages = get_flashed_messages() %} {% if messages %}
+        <div class="notification is-danger">
+          {{ messages[0] }}. Go to
+          <a href="{{ url_for('main.login') }}" id="error">login page</a>.
+        </div>
+        {% endif %} {% endwith %}
+        <form action="{{ url_for('main.register') }}" method="POST" role="form">
+          <table class="table">
+            <div class="mb-3">
+              <tr>
+                <td>
+                  <label for="first-name" class="form-label">First Name</label>
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="first-name"
+                    id="first-name"
+                    placeholder="First Name"
+                    autofocus
+                    required
+                  />
+                </td>
+              </tr>
+            </div>
+            <div class="mb-3">
+              <tr>
+                <td>
+                  <label for="last-name" class="form-label">Last Name</label>
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="last-name"
+                    id="last-name"
+                    placeholder="last Name"
+                    required
+                  />
+                </td>
+              </tr>
+            </div>
+            <div class="mb-3">
+              <tr>
+                <td>
+                  <label for="email" class="form-label">Email</label>
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="email"
+                    id="email"
+                    placeholder="Email"
+                    required
+                  />
+                </td>
+              </tr>
+            </div>
+            <div class="mb-3">
+              <tr>
+                <td>
+                  <label for="phone" class="form-label">Password</label>
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="password"
+                    id="password"
+                    placeholder="Password"
+                    required
+                  />
+                </td>
+              </tr>
+            </div>
+          </table>
+          <div class="card-footer text-center">
+            <label style="visibility: hidden">Register</label>
+            <button class="btn btn-primary" type="submit">Register</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
