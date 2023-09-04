@@ -19,8 +19,8 @@ def register():
 
 @main.route('/register', methods=['POST'])
 def register_post():
-    first_name = request.form.get('first-name')
-    last_name = request.form.get('last-name')
+    
+    username = request.form.get('username')
     email = request.form.get('email')
     password = request.form.get('password')
     
@@ -31,8 +31,7 @@ def register_post():
         return redirect(url_for('main.register'))
     
     new_user = User(
-        first_name = first_name,
-        last_name = last_name,
+        username = username,
         email = email,
         password = generate_password_hash(password, method='sha256')
     )
